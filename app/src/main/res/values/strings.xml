@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Practice</string>
+    <string name="search">Поиск треков</string>
+    <string name="player_play">Воспроизвести последний трек</string>
+    <string name="liked">Понравившиеся треки</string>
+    <string name="playlist">Текущий плейлист</string>
+    <string name="email">E-mail</string>
+    <string name="password">Пароль</string>
+    <string name="login">Войти</string>
+    <string name="register">Зарегистрироваться</string>
+    <string name="username">Имя пользователя</string>
+</resources>

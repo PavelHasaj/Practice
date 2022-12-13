@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_main"
+    android:id="@+id/background"
+    tools:context=".MainActivity" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/searchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:contentDescription="@string/search"
+            android:onClick="searchBtnClick"
+            app:srcCompat="@drawable/search"
+            tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/playerPlayBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="@string/player_play"
+            android:onClick="playBtnClick"
+            app:srcCompat="@drawable/player_play_bold"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/likedBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:contentDescription="@string/liked"
+            android:onClick="likedBtnClick"
+            app:srcCompat="@drawable/liked"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/playlistBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:contentDescription="@string/playlist"
+            android:onClick="playlistBtnClick"
+            app:srcCompat="@drawable/playlist_bold"
+            tools:ignore="ImageContrastCheck" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
