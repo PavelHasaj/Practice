@@ -30,12 +30,10 @@ public class MainActivity extends AppCompatActivity {
 
         if (role.equals("Admin")){
             Toast.makeText(MainActivity.this, "help Admin", Toast.LENGTH_SHORT).show();
-            playerPlayBtn.setVisibility(View.GONE);
         }
-        else if (role == "User")
+        else if (role.equals("User"))
         {
             Toast.makeText(MainActivity.this, "help not Admin", Toast.LENGTH_SHORT).show();
-            likedBtn.setVisibility(View.GONE);
         }
         else {
             Toast.makeText(MainActivity.this, "fig znaet kto", Toast.LENGTH_SHORT).show();

@@ -28,7 +28,7 @@ public class Register extends AppCompatActivity {
     //private Uri uploadUri;
 
     private String DEFAULT_ROLE = "User";
-    private String currentuser;
+    private String currentUser;
 
     private EditText usernameTB, emailTB, passwordTB;
 
@@ -51,29 +51,30 @@ public class Register extends AppCompatActivity {
         }
         else
         {
-            mAuth.createUserWithEmailAndPassword(emailTB.getText().toString(), passwordTB.getText().toString())
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()){
-                                //uploadUri = task.getResult();
-                                try {
-                                    currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                                    //Toast.makeText(Register.this, currentuser, Toast.LENGTH_SHORT).show();
-                                }
-                                catch (Exception e){
-                                    Toast.makeText(Register.this, "Ошибка: нулевой UID получен", Toast.LENGTH_SHORT).show();
-                                }
-
-                                saveUser();
-
-                                startActivity(new Intent(Register.this, MainActivity.class));
-                            }
-                            else {
-                                Toast.makeText(Register.this, "Ошибка при регистрации", Toast.LENGTH_SHORT).show();
-                            }
+            mAuth.createUserWithEmailAndPassword(emailTB.getText().toString(), passwordTB.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()){
+                        //uploadUri = task.getResult();
+                        try {
+                            currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            //Toast.makeText(Register.this, currentUser, Toast.LENGTH_SHORT).show();
                         }
-                    });
+                        catch (Exception e){
+                            Toast.makeText(Register.this, "Ошибка: нулевой UID получен", Toast.LENGTH_SHORT).show();
+                        }
+
+                        saveUser();
+                        Intent intent = new Intent(Register.this, MainActivity.class);
+                        intent.putExtra("UserName", currentUser);
+                        intent.putExtra("UserRole", DEFAULT_ROLE);
+                        startActivity(intent);
+                    }
+                    else {
+                        Toast.makeText(Register.this, "Ошибка при регистрации", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
     }
 
@@ -89,7 +90,7 @@ public class Register extends AppCompatActivity {
         */
 
         //String id = mBase.push().getKey();
-        String id = currentuser;
+        String id = currentUser;
         String username = usernameTB.getText().toString();
         String email = emailTB.getText().toString();
         String password = passwordTB.getText().toString();
